@@ -1,0 +1,333 @@
+<html><head><link type='text/css' href='style.css' rel='stylesheet'></head><body class='pgBgnd'>
+<h3 align='center'>Equations</h3>
+<table width='90%' align='center' border='1' cellpadding='0' cellspacing='0'>
+<tr><td>
+</td></tr><tr><td>
+********** Mapped Logic **********
+</td></tr><tr><td>
+FTCPE_BPS_TIMER/cnt0: FTCPE port map (BPS_TIMER/cnt(0),BPS_TIMER/cnt_T(0),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BPS_TIMER/cnt_T(0) <= NOT ((NOT current_state_FSM_FFd2 AND NOT current_state_FSM_FFd1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT current_state_FSM_FFd3 AND NOT BPS_TIMER/cnt(0)));
+</td></tr><tr><td>
+FDCPE_BPS_TIMER/cnt1: FDCPE port map (BPS_TIMER/cnt(1),BPS_TIMER/cnt_D(1),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BPS_TIMER/cnt_D(1) <= NOT (((BPS_TIMER/cnt(0) AND BPS_TIMER/cnt(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT BPS_TIMER/cnt(0) AND NOT BPS_TIMER/cnt(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT current_state_FSM_FFd2 AND NOT current_state_FSM_FFd1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT current_state_FSM_FFd3)));
+</td></tr><tr><td>
+FDCPE_BPS_TIMER/cnt2: FDCPE port map (BPS_TIMER/cnt(2),BPS_TIMER/cnt_D(2),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BPS_TIMER/cnt_D(2) <= NOT (((NOT BPS_TIMER/cnt(0) AND NOT BPS_TIMER/cnt(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT BPS_TIMER/cnt(1) AND NOT BPS_TIMER/cnt(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT current_state_FSM_FFd2 AND NOT current_state_FSM_FFd1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT current_state_FSM_FFd3)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (BPS_TIMER/cnt(0) AND BPS_TIMER/cnt(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	BPS_TIMER/cnt(2))));
+</td></tr><tr><td>
+FTCPE_BPS_TIMER/cnt3: FTCPE port map (BPS_TIMER/cnt(3),BPS_TIMER/cnt_T(3),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BPS_TIMER/cnt_T(3) <= ((current_state_FSM_FFd2 AND BPS_TIMER/cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	BPS_TIMER/cnt(1) AND BPS_TIMER/cnt(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT current_state_FSM_FFd2 AND NOT current_state_FSM_FFd1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT current_state_FSM_FFd3 AND BPS_TIMER/cnt(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd1 AND BPS_TIMER/cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	BPS_TIMER/cnt(1) AND BPS_TIMER/cnt(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd3 AND BPS_TIMER/cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	BPS_TIMER/cnt(1) AND BPS_TIMER/cnt(2)));
+</td></tr><tr><td>
+FDCPE_BPS_TIMER/cnt4: FDCPE port map (BPS_TIMER/cnt(4),BPS_TIMER/cnt_D(4),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BPS_TIMER/cnt_D(4) <= NOT (((NOT N_PZ_274 AND NOT BPS_TIMER/cnt(4))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT current_state_FSM_FFd2 AND NOT current_state_FSM_FFd1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT current_state_FSM_FFd3)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT N_PZ_274 AND BPS_TIMER/cnt(0) AND BPS_TIMER/cnt(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	BPS_TIMER/cnt(2) AND BPS_TIMER/cnt(3))));
+</td></tr><tr><td>
+</td></tr><tr><td>
+N_PZ_252 <= ((rst AND NOT curr)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (rst AND last));
+</td></tr><tr><td>
+</td></tr><tr><td>
+N_PZ_274 <= (BPS_TIMER/cnt(0) AND BPS_TIMER/cnt(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	BPS_TIMER/cnt(2) AND BPS_TIMER/cnt(3) AND NOT BPS_TIMER/cnt(4));
+</td></tr><tr><td>
+</td></tr><tr><td>
+N_PZ_293 <= ((rx_data(1) AND NOT rx_data(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT rx_data(1) AND rx_data(2)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+N_PZ_294 <= ((rx_data(4) AND NOT rx_data(5))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT rx_data(4) AND rx_data(5)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+N_PZ_295 <= rx_data(3)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	XOR ((rx_data(7) AND rx_data(0) AND N_PZ_293)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (rx_data(7) AND NOT rx_data(0) AND NOT N_PZ_293)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT rx_data(7) AND rx_data(0) AND NOT N_PZ_293)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT rx_data(7) AND NOT rx_data(0) AND N_PZ_293));
+</td></tr><tr><td>
+</td></tr><tr><td>
+N_PZ_296 <= ((NOT ge(0) AND NOT ge(1) AND ge(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (ge(0) AND NOT ge(1) AND NOT ge(3) AND NOT ge(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT shi(0) AND NOT shi(3) AND NOT shi(2) AND NOT shi(1) AND NOT ge(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT ge(1) AND NOT ge(3)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+N_PZ_305 <= ((ge(1) AND ge(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (ge(3) AND ge(2)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+N_PZ_308 <= ((NOT shi(0) AND NOT shi(3) AND shi(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (shi(3) AND NOT shi(2) AND NOT shi(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT shi(3) AND NOT shi(2) AND shi(1)));
+</td></tr><tr><td>
+FDCPE_count0: FDCPE port map (count(0),count_D(0),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count_D(0) <= NOT (((NOT current_state_FSM_FFd2 AND NOT current_state_FSM_FFd3)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (count(0) AND N_PZ_274)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT count(0) AND NOT N_PZ_274)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (N_PZ_274 AND count(1) AND NOT count(2) AND count(3))));
+</td></tr><tr><td>
+FTCPE_count1: FTCPE port map (count(1),count_T(1),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count_T(1) <= ((current_state_FSM_FFd2 AND count(0) AND N_PZ_274)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT current_state_FSM_FFd2 AND NOT current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	count(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd3 AND count(0) AND N_PZ_274)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (N_PZ_274 AND count(1) AND NOT count(2) AND count(3)));
+</td></tr><tr><td>
+FTCPE_count2: FTCPE port map (count(2),count_T(2),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count_T(2) <= ((NOT current_state_FSM_FFd2 AND NOT current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	count(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND count(0) AND N_PZ_274 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	count(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd3 AND count(0) AND N_PZ_274 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	count(1)));
+</td></tr><tr><td>
+FTCPE_count3: FTCPE port map (count(3),count_T(3),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count_T(3) <= ((NOT current_state_FSM_FFd2 AND NOT current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	count(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND count(0) AND N_PZ_274 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	count(1) AND count(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd3 AND count(0) AND N_PZ_274 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	count(1) AND count(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT count(0) AND N_PZ_274 AND count(1) AND NOT count(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	count(3)));
+</td></tr><tr><td>
+FDCPE_curr: FDCPE port map (curr,flag,clk_in,'0','0',rst);
+</td></tr><tr><td>
+FTCPE_current_state_FSM_FFd1: FTCPE port map (current_state_FSM_FFd1,current_state_FSM_FFd1_T,clk_in,NOT rst,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_state_FSM_FFd1_T <= ((current_state_FSM_FFd1 AND NOT count(0) AND NOT count(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT count(2) AND NOT count(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND NOT current_state_FSM_FFd1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT current_state_FSM_FFd3 AND NOT count(0) AND count(1) AND NOT count(2) AND count(3)));
+</td></tr><tr><td>
+FDCPE_current_state_FSM_FFd2: FDCPE port map (current_state_FSM_FFd2,current_state_FSM_FFd2_D,clk_in,NOT rst,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_state_FSM_FFd2_D <= NOT ((NOT current_state_FSM_FFd2 AND NOT current_state_FSM_FFd1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	XOR ((NOT current_state_FSM_FFd2 AND current_state_FSM_FFd1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT count(0) AND NOT count(1) AND NOT count(2) AND NOT count(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd1 AND NOT current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT count(0) AND NOT count(1) AND NOT count(2) AND NOT count(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT current_state_FSM_FFd2 AND NOT current_state_FSM_FFd1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	current_state_FSM_FFd3 AND count(0) AND NOT count(1) AND NOT count(2) AND NOT count(3))));
+</td></tr><tr><td>
+FTCPE_current_state_FSM_FFd3: FTCPE port map (current_state_FSM_FFd3,current_state_FSM_FFd3_T,clk_in,NOT rst,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_state_FSM_FFd3_T <= ((NOT current_state_FSM_FFd2 AND NOT current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT rx_pin_in AND edge_detection/rx_pin_in_1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	count(0) AND NOT count(1) AND NOT count(2) AND count(3)));
+</td></tr><tr><td>
+FDCPE_edge_detection/rx_pin_in_1: FDCPE port map (edge_detection/rx_pin_in_1,rx_pin_in,clk_in,'0','0',NOT current_state_FSM_FFd2);
+</td></tr><tr><td>
+LDCP_flag: LDCP port map (flag,flag_D,,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flag_D <= ((current_state_FSM_FFd2 AND NOT current_state_FSM_FFd1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT current_state_FSM_FFd3 AND N_PZ_274 AND rx_pin_in AND jiaoyan)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND NOT current_state_FSM_FFd1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT current_state_FSM_FFd3 AND N_PZ_274 AND NOT rx_pin_in AND NOT jiaoyan));
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flag_G <= (NOT current_state_FSM_FFd3 AND flag_not00015);
+</td></tr><tr><td>
+</td></tr><tr><td>
+flag_not00015 <= ((NOT current_state_FSM_FFd2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT current_state_FSM_FFd1 AND N_PZ_274));
+</td></tr><tr><td>
+FDCPE_ge0: FDCPE port map (ge(0),ge_D(0),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ge_D(0) <= ((N_PZ_252 AND ge(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (rx_data(0) AND rst AND curr AND NOT last));
+</td></tr><tr><td>
+FDCPE_ge1: FDCPE port map (ge(1),ge_D(1),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ge_D(1) <= ((N_PZ_252 AND ge(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (rx_data(1) AND rst AND curr AND NOT last));
+</td></tr><tr><td>
+FDCPE_ge2: FDCPE port map (ge(2),ge_D(2),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ge_D(2) <= ((N_PZ_252 AND ge(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (rx_data(2) AND rst AND curr AND NOT last));
+</td></tr><tr><td>
+FDCPE_ge3: FDCPE port map (ge(3),ge_D(3),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ge_D(3) <= ((N_PZ_252 AND ge(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (rx_data(3) AND rst AND curr AND NOT last));
+</td></tr><tr><td>
+FDCPE_jiaoyan: FDCPE port map (jiaoyan,jiaoyan_D,clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jiaoyan_D <= (current_state_FSM_FFd2 AND rx_data(6))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	XOR ((NOT current_state_FSM_FFd2 AND jiaoyan)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND NOT current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_295 AND NOT N_PZ_294)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND NOT current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT N_PZ_295 AND N_PZ_294)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND NOT N_PZ_274 AND N_PZ_295 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT N_PZ_294)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND NOT N_PZ_274 AND NOT N_PZ_295 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_294)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd3 AND N_PZ_274 AND NOT rx_data(6) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	jiaoyan)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_274 AND rx_data(6) AND NOT jiaoyan));
+</td></tr><tr><td>
+FDCPE_last: FDCPE port map (last,curr,clk_in,'0','0',rst);
+</td></tr><tr><td>
+FDCPE_led1_pin0: FDCPE port map (led1_pin(0),led1_pin_D(0),clk_in,'0',NOT rst,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led1_pin_D(0) <= NOT ((NOT shi(0) AND N_PZ_308));
+</td></tr><tr><td>
+FDCPE_led1_pin1: FDCPE port map (led1_pin(1),led1_pin_D(1),clk_in,'0',NOT rst,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led1_pin_D(1) <= NOT (((N_PZ_308)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (shi(0) AND NOT shi(3) AND shi(2) AND NOT shi(1))));
+</td></tr><tr><td>
+FDCPE_led1_pin2: FDCPE port map (led1_pin(2),led1_pin_D(2),clk_in,'0',NOT rst,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led1_pin_D(2) <= NOT (((shi(0) AND NOT shi(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT shi(3) AND shi(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (shi(3) AND NOT shi(2) AND NOT shi(1))));
+</td></tr><tr><td>
+FDCPE_led1_pin3: FDCPE port map (led1_pin(3),led1_pin_D(3),clk_in,'0',NOT rst,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led1_pin_D(3) <= NOT (((N_PZ_308 AND NOT shi(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (shi(0) AND NOT shi(3) AND shi(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (shi(0) AND NOT shi(2) AND NOT shi(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT shi(0) AND NOT N_PZ_308 AND NOT shi(3) AND shi(2))));
+</td></tr><tr><td>
+FDCPE_led1_pin4: FDCPE port map (led1_pin(4),led1_pin_D(4),clk_in,'0',NOT rst,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led1_pin_D(4) <= NOT (((N_PZ_308)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (shi(0) AND NOT shi(3) AND shi(2))));
+</td></tr><tr><td>
+FDCPE_led1_pin5: FDCPE port map (led1_pin(5),led1_pin_D(5),clk_in,'0',NOT rst,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led1_pin_D(5) <= NOT (((NOT shi(0) AND NOT shi(3) AND shi(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (shi(3) AND NOT shi(2) AND NOT shi(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT shi(3) AND shi(2) AND NOT shi(1))));
+</td></tr><tr><td>
+FDCPE_led1_pin6: FDCPE port map (led1_pin(6),led1_pin_D(6),clk_in,'0',NOT rst,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led1_pin_D(6) <= NOT (((N_PZ_308)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT shi(3) AND shi(2) AND NOT shi(1))));
+</td></tr><tr><td>
+FDCPE_led1_pin7: FDCPE port map (led1_pin(7),NOT '0',clk_in,'0',NOT rst,'1');
+</td></tr><tr><td>
+FDCPE_led2_pin0: FDCPE port map (led2_pin(0),led2_pin_D(0),clk_in,'0',NOT rst,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led2_pin_D(0) <= NOT ((NOT ge(0) AND NOT N_PZ_296 AND NOT N_PZ_305));
+</td></tr><tr><td>
+FDCPE_led2_pin1: FDCPE port map (led2_pin(1),led2_pin_D(1),clk_in,'0',NOT rst,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led2_pin_D(1) <= ((N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (N_PZ_305)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (ge(0) AND ge(1) AND ge(2)));
+</td></tr><tr><td>
+FDCPE_led2_pin2: FDCPE port map (led2_pin(2),led2_pin_D(2),clk_in,'0',NOT rst,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led2_pin_D(2) <= ((N_PZ_305)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT ge(0) AND ge(1) AND NOT ge(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT shi(0) AND NOT shi(3) AND NOT shi(2) AND NOT shi(1) AND NOT ge(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT ge(3) AND NOT ge(2)));
+</td></tr><tr><td>
+FDCPE_led2_pin3: FDCPE port map (led2_pin(3),led2_pin_D(3),clk_in,'0',NOT rst,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led2_pin_D(3) <= ((N_PZ_305)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (ge(0) AND NOT ge(1) AND ge(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT ge(0) AND ge(1) AND ge(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT shi(0) AND NOT shi(3) AND NOT shi(2) AND NOT shi(1) AND NOT ge(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT ge(1) AND NOT ge(3) AND NOT ge(2)));
+</td></tr><tr><td>
+FDCPE_led2_pin4: FDCPE port map (led2_pin(4),led2_pin_D(4),clk_in,'0',NOT rst,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led2_pin_D(4) <= NOT ((NOT N_PZ_296 AND NOT N_PZ_305));
+</td></tr><tr><td>
+FDCPE_led2_pin5: FDCPE port map (led2_pin(5),led2_pin_D(5),clk_in,'0',NOT rst,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led2_pin_D(5) <= NOT (((NOT ge(0) AND ge(2) AND NOT N_PZ_305)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT N_PZ_296 AND NOT ge(1) AND NOT N_PZ_305)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT ge(1) AND ge(2) AND NOT N_PZ_305)));
+</td></tr><tr><td>
+FDCPE_led2_pin6: FDCPE port map (led2_pin(6),led2_pin_D(6),clk_in,'0',NOT rst,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led2_pin_D(6) <= NOT (NOT ge(3)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	XOR ((NOT ge(1) AND NOT ge(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (ge(0) AND ge(1) AND NOT ge(3) AND ge(2))));
+</td></tr><tr><td>
+FDCPE_led2_pin7: FDCPE port map (led2_pin(7),NOT '0',clk_in,'0',NOT rst,'1');
+</td></tr><tr><td>
+FDCPE_rx_data0: FDCPE port map (rx_data(0),rx_data_D(0),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rx_data_D(0) <= ((current_state_FSM_FFd2 AND NOT current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	rx_data(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND NOT N_PZ_274 AND rx_data(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_274 AND rx_data(1)));
+</td></tr><tr><td>
+FTCPE_rx_data1: FTCPE port map (rx_data(1),rx_data_T(1),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rx_data_T(1) <= ((NOT current_state_FSM_FFd2 AND rx_data(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_274 AND N_PZ_293));
+</td></tr><tr><td>
+FDCPE_rx_data2: FDCPE port map (rx_data(2),rx_data_D(2),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rx_data_D(2) <= ((current_state_FSM_FFd2 AND NOT current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	rx_data(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND NOT N_PZ_274 AND rx_data(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_274 AND rx_data(3)));
+</td></tr><tr><td>
+FDCPE_rx_data3: FDCPE port map (rx_data(3),rx_data_D(3),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rx_data_D(3) <= ((current_state_FSM_FFd2 AND NOT current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	rx_data(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND NOT N_PZ_274 AND rx_data(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_274 AND rx_data(4)));
+</td></tr><tr><td>
+FTCPE_rx_data4: FTCPE port map (rx_data(4),rx_data_T(4),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rx_data_T(4) <= ((NOT current_state_FSM_FFd2 AND rx_data(4))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_274 AND N_PZ_294));
+</td></tr><tr><td>
+FDCPE_rx_data5: FDCPE port map (rx_data(5),rx_data_D(5),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rx_data_D(5) <= ((current_state_FSM_FFd2 AND NOT current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	rx_data(5))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND NOT N_PZ_274 AND rx_data(5))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_274 AND rx_data(6)));
+</td></tr><tr><td>
+FDCPE_rx_data6: FDCPE port map (rx_data(6),rx_data_D(6),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rx_data_D(6) <= ((current_state_FSM_FFd2 AND NOT current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	rx_data(6))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND NOT N_PZ_274 AND rx_data(6))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_274 AND rx_data(7)));
+</td></tr><tr><td>
+FDCPE_rx_data7: FDCPE port map (rx_data(7),rx_data_D(7),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rx_data_D(7) <= ((current_state_FSM_FFd2 AND NOT current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	rx_data(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND NOT N_PZ_274 AND rx_data(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (current_state_FSM_FFd2 AND current_state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_274 AND rx_pin_in));
+</td></tr><tr><td>
+FDCPE_shi0: FDCPE port map (shi(0),shi_D(0),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shi_D(0) <= ((shi(0) AND N_PZ_252)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (rx_data(4) AND rst AND curr AND NOT last));
+</td></tr><tr><td>
+FDCPE_shi1: FDCPE port map (shi(1),shi_D(1),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shi_D(1) <= ((N_PZ_252 AND shi(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (rx_data(5) AND rst AND curr AND NOT last));
+</td></tr><tr><td>
+FDCPE_shi2: FDCPE port map (shi(2),shi_D(2),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shi_D(2) <= ((N_PZ_252 AND shi(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (rx_data(6) AND rst AND curr AND NOT last));
+</td></tr><tr><td>
+FDCPE_shi3: FDCPE port map (shi(3),shi_D(3),clk_in,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shi_D(3) <= ((N_PZ_252 AND shi(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (rx_data(7) AND rst AND curr AND NOT last));
+</td></tr><tr><td>
+</td></tr><tr><td>
+Register Legend:
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FDCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FDDCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FTCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FTDCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LDCP  (Q,D,G,CLR,PRE); 
+</td></tr><tr><td>
+</td></tr>
+</table>
+<form><span class="pgRef"><table width="90%" align="center"><tr>
+<td align="left"><input type="button" onclick="javascript:parent.leftnav.showTop()" onmouseover="window.status='goto top of page'; return true;" onmouseout="window.status=''" value="back to top"></td>
+<td align="right"><input type="button" onclick="window.print()" onmouseover="window.status='print page'; return true;" onmouseout="window.status=''" value="print page"></td>
+</tr></table></span></form>
+</body></html>
